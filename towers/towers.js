@@ -79,10 +79,11 @@ const paintGame = (n, towers) => {
       } else {
         // paint block
         let width = n * 2 + 1;
-        let block = '===';
-        let blockSize = tower.disks[i].size; 
+        let blockSize = tower.disks[i].size;
+        let block = `=${blockSize}=`;
         while (blockSize > 1) {
-          block += '==';
+          block = '='.concat(block);
+          block += '=';
           blockSize--;
         }
         width -= block.length;
@@ -133,4 +134,4 @@ const runPuzzle = (n, cb) => {
 }
 
 
-runPuzzle(3, paintGame);
+runPuzzle(6, paintGame);
