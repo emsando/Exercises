@@ -20,7 +20,7 @@ class Tower {
     tower.add(top);
   }
 
-  async moveDisks(n, destination, buffer, cb, levels, orderedTowers) {
+  moveDisks(n, destination, buffer, cb, levels, orderedTowers) {
     if (n > 0) {
       this.moveDisks(n - 1, buffer, destination, cb, levels, orderedTowers);
       this.moveTopTo(destination);
