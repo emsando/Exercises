@@ -64,22 +64,52 @@ const paintGame = (n, towers) => {
 
   // towers contain n spaces for blocks
   // for every space
-  for (let i = 0; i < n; i++) {
+  for (let i = n - 1; i >= 0; i--) {
     // for every tower
     for (let j = 0; j < 3; j++) {
       let tower = towers[j];
-      // start with just filling spaces
-      string += new Array(n).fill(' ').join('');
-      string += '|';
-      string += new Array(n).fill(' ').join('');
-      string += tabs; 
+      let size = tower.size();
+
+      if (size - 1 < i) {
+        // paint spaces
+        string += new Array(n).fill(' ').join('');
+        string += '|';
+        string += new Array(n).fill(' ').join('');
+        string += tabs; 
+      } else {
+        // paint block
+        let width = n * 2 + 1;
+        let block = '===';
+        let blockSize = tower.disks[i].size; 
+        while (blockSize > 1) {
+          block += '==';
+          blockSize--;
+        }
+        width -= block.length;
+        width = width / 2;
+        let spaces = '';
+        while (width) {
+          spaces += ' '
+          width--;
+        }
+        string += spaces + block + spaces;
+        string += tabs;
+      }
     }
     string += '\n';
   }
 
   // add names to bottom of towers
   for (let i = 0; i < 3; i++) {
-    string += towers[i].name;
+    let width = n * 2 + 1;
+    let diff = width - 7; // "tower X" is 7 chars
+    let spaces = '';
+    diff = diff / 2;
+    while (diff) {
+      spaces += ' ';
+      diff--;
+    }
+    string += spaces + towers[i].name + spaces;
     string += tabs;
   }
   string += '\n';
