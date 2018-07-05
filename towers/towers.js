@@ -120,5 +120,13 @@ const runPuzzle = (n, cb) => {
   towerA.moveDisks(n, towerC, towerB, cb, n, orderedTowers);
 }
 
+const driver = () => {
+  if (process.argv.length > 3 || process.argv.length < 3) {
+    console.error('Usage: node towers.js <n>\nWhere n is the number of disks!');
+    return;
+  }
+  let n = Number(process.argv[2]);
+  runPuzzle(n, paintGame);
+}
 
-runPuzzle(3, paintGame);
+driver();
