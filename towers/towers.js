@@ -27,13 +27,13 @@ class Tower {
     tower.add(top);
   }
 
-  moveDisks(n, destination, buffer, cb, levels, orderedTowers) {
+  moveDisks(n, destination, buffer, orderedTowers) {
     if (n > 0) {
-      this.moveDisks(n - 1, buffer, destination, cb, levels, orderedTowers);
+      this.moveDisks(n - 1, buffer, destination);
       this.moveTopTo(destination);
       this.parent.gameMove++;
-      this.parent.paintPuzzle(levels, orderedTowers);
-      buffer.moveDisks(n - 1, destination, this, cb, levels, orderedTowers);
+      this.parent.paintPuzzle();
+      buffer.moveDisks(n - 1, destination, this);
     }
   }
 }
