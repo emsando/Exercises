@@ -32,7 +32,7 @@ class Tower {
       this.moveDisks(n - 1, buffer, destination);
       this.moveTopTo(destination);
       this.parent.gameMove++;
-      this.parent.paintPuzzle();
+      // this.parent.paintPuzzle();
       buffer.moveDisks(n - 1, destination, this);
     }
   }
@@ -126,7 +126,8 @@ class Puzzle {
 
   runPuzzle() {
     this.paintPuzzle();
-    this.towers[0].moveDisks(this.diskNum, this.towers[2], this.towers[1], this.towers)
+    this.towers[0].moveDisks(this.diskNum, this.towers[2], this.towers[1], this.towers);
+    this.paintPuzzle();
   }
 }
 
