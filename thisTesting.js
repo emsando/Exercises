@@ -47,3 +47,6 @@ console.log('obj2.test4.call(obj):')
 obj2.test4.call(obj);
 console.log('WRAPPED:')
 obj2.test5();
+
+<!-- test // just found out about this. Single line comment still supported by Node but not my linter ...
+<!-- source: https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/

@@ -39,3 +39,17 @@ runTests.addEventListener('click', function(e) {
   console.log('current target: ', e.currentTarget);
   console.log('=================================');
 })
+
+grandparent.addEventListener('click', function(e) {
+  if (e.target !== this) return null
+  this.classList.add('testClass');
+  console.log(this.classList);
+  this.classList.remove('testClass');
+  console.log(this.classList);
+})
+
+parentdiv.addEventListener('click', function(e) {
+  if (e.target !== this) return null
+  console.log(this.id);
+  console.log(this.nodeName);
+})
