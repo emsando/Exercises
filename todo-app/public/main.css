@@ -4,6 +4,16 @@
   align-items: center;
 }
 
+.todo-item {
+  cursor: pointer;
+}
+
 .completed {
   text-decoration: line-through;
+}
+
+.top-layer {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
 }
