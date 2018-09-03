@@ -12,7 +12,30 @@ exports.Game = class Game {
   }
 
   runGame() {
-    console.log('run game');
+    printBoard(this.board);
+    this.handleTurn(this.currentPlayer)
+      .then(this.checkWin)
+      .then(result => {
+        if (result) {
+          return this.handleWin();
+        }
+
+        if (this.currentPlayer === this.player1) {
+          this.currentPlayer = this.player2;
+        } else {
+          this.currentPlayer = this.player1;
+        }
+
+        return this.runGame();
+      })
+      .catch(error => console.error(error));
+  }
+
+  handleTurn(player) {
+    return this.getColumnFromUser(player)
+      .then(({ col_to_attempt }) => {
+        return this.attemptPlacement(col_to_attempt, player)
+      })
   }
 
   getColumnFromUser(player) {
@@ -20,14 +43,12 @@ exports.Game = class Game {
       name: 'col_to_attempt',
       message: `${player.name}, enter column to drop piece in: `
     })
-    .then(({ col_to_attempt }) => {
-      return this.attemptPlacement(col_to_attempt, player)
-    })
   }
 
   attemptPlacement(col, player) {
     if (this.fullColumns[col]) {
-      return false;
+      console.log('Not a valid placement!');
+      return this.handleTurn(this.currentPlayer);
     }
 
     this.board.forEach((row, index) => {
@@ -38,5 +59,12 @@ exports.Game = class Game {
         }
       }
     })
+
+    return true;
+  }
+
+  checkWin() {
+    console.log('checkwin');
+    return false;
   }
 }
