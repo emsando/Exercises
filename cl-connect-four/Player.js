@@ -1,6 +1,6 @@
 exports.Player = class Player {
-  constructor(piece) {
-    this.name = piece;
+  constructor(name, piece) {
+    this.name = name;
     this.piece = piece;
   }
 }
