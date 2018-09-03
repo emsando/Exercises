@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const { Player } = require('./Player.js');
-const { printBoard } = require('./functions/printBoard.js')
+const { printBoard } = require('./functions/printBoard.js');
+const { checkWin } = require('./functions/checkWin.js');
 
 exports.Game = class Game {
   constructor(playerOne, playerTwo) {
@@ -63,8 +64,8 @@ exports.Game = class Game {
     return true;
   }
 
-  checkWin() {
-    console.log('checkwin');
-    return false;
+  handleWin() {
+    console.log(`${this.currentPlayer} WINS!`);
+    return true;
   }
 }
