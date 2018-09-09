@@ -623,15 +623,75 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 
 /***/ }),
 
-/***/ "./src/App.jsx":
-/*!*********************!*\
-  !*** ./src/App.jsx ***!
-  \*********************/
+/***/ "./src/actions/index.js":
+/*!******************************!*\
+  !*** ./src/actions/index.js ***!
+  \******************************/
+/*! exports provided: filters, toggleTodoActionCreator, addTodoActionCreator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"filters\", function() { return filters; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"toggleTodoActionCreator\", function() { return toggleTodoActionCreator; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTodoActionCreator\", function() { return addTodoActionCreator; });\nvar filters = {\n  SHOW_ALL: 'SHOW_ALL',\n  SHOW_COMPLETED: 'SHOW_COMPLETED',\n  SHOW_ACTIVE: 'SHOW_ACTIVE'\n};\nvar toggleTodoActionCreator = function toggleTodoActionCreator(id) {\n  return {\n    type: 'TOGGLE_TODO',\n    id: id\n  };\n};\nvar nextId = 0;\nvar addTodoActionCreator = function addTodoActionCreator(text) {\n  return {\n    type: 'ADD_TODO',\n    text: text,\n    id: nextId++\n  };\n};\n\n//# sourceURL=webpack:///./src/actions/index.js?");
+
+/***/ }),
+
+/***/ "./src/components/App.js":
+/*!*******************************!*\
+  !*** ./src/components/App.js ***!
+  \*******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar App = function App() {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"Hello world\");\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./src/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _containers_VisibleTodoList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../containers/VisibleTodoList.js */ \"./src/containers/VisibleTodoList.js\");\n/* harmony import */ var _containers_AddTodo_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../containers/AddTodo.js */ \"./src/containers/AddTodo.js\");\n\n\n\n\nvar App = function App() {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"Hello world\", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_AddTodo_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_VisibleTodoList_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./src/components/App.js?");
+
+/***/ }),
+
+/***/ "./src/components/Todo.js":
+/*!********************************!*\
+  !*** ./src/components/Todo.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar Todo = function Todo(_ref) {\n  var text = _ref.text,\n      completed = _ref.completed,\n      onClick = _ref.onClick;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"li\", {\n    style: {\n      textDecoration: completed ? 'line-through' : '',\n      cursor: 'pointer'\n    },\n    onClick: onClick\n  }, text);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Todo);\n\n//# sourceURL=webpack:///./src/components/Todo.js?");
+
+/***/ }),
+
+/***/ "./src/components/TodoList.js":
+/*!************************************!*\
+  !*** ./src/components/TodoList.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Todo.js */ \"./src/components/Todo.js\");\n\n\n\nvar TodoList = function TodoList(_ref) {\n  var todos = _ref.todos,\n      toggleTodo = _ref.toggleTodo;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"ul\", null, todos.map(function (todo) {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Todo_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n      key: todo.id,\n      text: todo.text,\n      completed: todo.completed,\n      onClick: function onClick() {\n        return toggleTodo(todo.id);\n      }\n    });\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (TodoList);\n\n//# sourceURL=webpack:///./src/components/TodoList.js?");
+
+/***/ }),
+
+/***/ "./src/containers/AddTodo.js":
+/*!***********************************!*\
+  !*** ./src/containers/AddTodo.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _actions_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/index.js */ \"./src/actions/index.js\");\n\n\n\n\nvar AddTodo = function AddTodo(_ref) {\n  var dispatch = _ref.dispatch;\n  var input = null;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    id: \"add-todo\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"input\", {\n    type: \"text\",\n    ref: function ref(node) {\n      return input = node;\n    }\n  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n    onClick: function onClick() {\n      var text = input.value;\n      if (!text) return;\n      input.value = '';\n      dispatch(Object(_actions_index_js__WEBPACK_IMPORTED_MODULE_2__[\"addTodoActionCreator\"])(text));\n    }\n  }, \"Add Todo\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])()(AddTodo));\n\n//# sourceURL=webpack:///./src/containers/AddTodo.js?");
+
+/***/ }),
+
+/***/ "./src/containers/VisibleTodoList.js":
+/*!*******************************************!*\
+  !*** ./src/containers/VisibleTodoList.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _components_TodoList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TodoList.js */ \"./src/components/TodoList.js\");\n/* harmony import */ var _actions_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/index.js */ \"./src/actions/index.js\");\n\n\n\n\nvar filterTodos = function filterTodos(todos, filter) {\n  if (filter === _actions_index_js__WEBPACK_IMPORTED_MODULE_2__[\"filters\"].SHOW_ALL) {\n    return todos;\n  }\n\n  if (filter === _actions_index_js__WEBPACK_IMPORTED_MODULE_2__[\"filters\"].SHOW_COMPLETED) {\n    return todos.filter(function (item) {\n      return item.completed;\n    });\n  }\n\n  if (filter === _actions_index_js__WEBPACK_IMPORTED_MODULE_2__[\"filters\"].SHOW_ACTIVE) {\n    return todos.filter(function (item) {\n      return !item.completed;\n    });\n  }\n};\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    todos: filterTodos(state.todos, state.filter)\n  };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return {\n    toggleTodo: function toggleTodo(id) {\n      dispatch(Object(_actions_index_js__WEBPACK_IMPORTED_MODULE_2__[\"toggleTodoActionCreator\"])(id));\n    }\n  };\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__[\"connect\"])(mapStateToProps, mapDispatchToProps)(_components_TodoList_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]));\n\n//# sourceURL=webpack:///./src/containers/VisibleTodoList.js?");
 
 /***/ }),
 
@@ -643,7 +703,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _reducers_root_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducers/root.js */ \"./src/reducers/root.js\");\n/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.jsx */ \"./src/App.jsx\");\n\n\n\n\n\n\nvar store = Object(redux__WEBPACK_IMPORTED_MODULE_3__[\"createStore\"])(_reducers_root_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__[\"Provider\"], {\n  store: store\n}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null)), document.getElementById('app'));\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _reducers_root_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducers/root.js */ \"./src/reducers/root.js\");\n/* harmony import */ var _components_App_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/App.js */ \"./src/components/App.js\");\n\n\n\n\n\n\nvar store = Object(redux__WEBPACK_IMPORTED_MODULE_3__[\"createStore\"])(_reducers_root_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"], window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__[\"Provider\"], {\n  store: store\n}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App_js__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null)), document.getElementById('app'));\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/reducers/filter.js":
+/*!********************************!*\
+  !*** ./src/reducers/filter.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/index.js */ \"./src/actions/index.js\");\n\n\nvar filter = function filter() {\n  var filterState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _actions_index_js__WEBPACK_IMPORTED_MODULE_0__[\"filters\"].SHOW_ALL;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case 'SET_FILTER':\n      return action.filter;\n\n    default:\n      return filterState;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (filter);\n\n//# sourceURL=webpack:///./src/reducers/filter.js?");
 
 /***/ }),
 
@@ -655,7 +727,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({}, {})); // so error doesn't stop render\n\n//# sourceURL=webpack:///./src/reducers/root.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _todos_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todos.js */ \"./src/reducers/todos.js\");\n/* harmony import */ var _filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter.js */ \"./src/reducers/filter.js\");\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  todos: _todos_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  filter: _filter_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\n}));\n\n//# sourceURL=webpack:///./src/reducers/root.js?");
+
+/***/ }),
+
+/***/ "./src/reducers/todos.js":
+/*!*******************************!*\
+  !*** ./src/reducers/todos.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }\n\nfunction _nonIterableSpread() { throw new TypeError(\"Invalid attempt to spread non-iterable instance\"); }\n\nfunction _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === \"[object Arguments]\") return Array.from(iter); }\n\nfunction _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }\n\nvar todos = function todos() {\n  var todoState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  if (action.type === 'TOGGLE_TODO') {\n    return todoState.map(function (todo) {\n      return todo.id === action.id ? Object.assign({}, todo, {\n        completed: !todo.completed\n      }) : todo;\n    });\n  }\n\n  if (action.type === 'ADD_TODO') {\n    return _toConsumableArray(todoState).concat([{\n      text: action.text,\n      id: action.id,\n      completed: false\n    }]);\n  }\n\n  return todoState;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (todos);\n\n//# sourceURL=webpack:///./src/reducers/todos.js?");
 
 /***/ })
 
