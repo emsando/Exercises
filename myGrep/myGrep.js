@@ -59,7 +59,7 @@ const searchFileText = (path, query) => {
     }
   }
    
-  return matches
+  return matches;
 }
 
 // albuquerque - this line was used for tests
